@@ -1,0 +1,39 @@
+/*
+	Toggle Switch
+*/
+
+.switch {
+    position:relative;
+    width:58px;
+    height:25px;
+    overflow:hidden;
+    cursor:pointer;
+	margin-top: 5px;
+}
+.switch .overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    width:58px;
+    height:25px;
+    background:url('../images/mobile/global/common//overlay@2x.png') no-repeat 0 0;
+	background-size: 58px 25px;
+    z-index:9;
+}
+.switch span.switched {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:90px;
+    height:25px;
+    background:url('../images/mobile/global/common//switch@2x.gif') no-repeat 0 0;
+	background-size: 90px 25px;
+    z-index:8;
+}
+.switch span.off {
+    left:-33px;
+}
+.switch input {
+    display:none;
+}

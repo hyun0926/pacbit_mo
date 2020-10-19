@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>planbit</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="apple-mobile-web-app-title" content="bitKREX">
+	<meta name="description" content="글로벌 암호화폐거래소">
+	<meta name="keywords" content="비트코인, 가상화폐">
+	<meta property="og:site_name" content="planbit">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="planbit">
+	<meta property="og:description" content="고객님의 자산을 투명하고 안전하게 지키기 위한 거래소">
+	<meta property="og:url" content="https://www.planbit.com">
+	<meta property="og:image" content="https://www.planbit.com/images/mobile/app/bitkrex.png">
+	<link rel="stylesheet" type="text/css" href="css/layout.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/contents.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/flat/blue.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/toggleswitch.css" media="all" />
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/icheck.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>
+	<script type="text/javascript" src="js/jquery.toggleswitch.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="js/jquery.dlmenu.js"></script>
+	<script type="text/javascript">
+	//쿠키값 가져오기 함수
+	function notice_getCookie( name ){
+		var nameOfCookie = name + "=";
+		var x = 0;
+		while ( x <= document.cookie.length ){
+			var y = (x+nameOfCookie.length);
+			if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+				if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+				endOfCookie = document.cookie.length;
+				return unescape( document.cookie.substring( y, endOfCookie ) );
+			}
+			x = document.cookie.indexOf( " ", x ) + 1;
+			if ( x == 0 )
+			break;
+		}
+	return "";
+	}
+
+	window.onload = function(){
+		//첫번째 팝업창(pop1) 띄우는 스크립트
+		if ( notice_getCookie( "pop1" ) != "done" ){
+		//첫번째 레이어 보이기
+			document.getElementById("layer1").style.display = "block";
+		}
+		//두번째 팝업창(pop2) 띄우는 스크립트
+		if ( notice_getCookie( "pop2" ) != "done" ){
+		//두번째 레이어 보이기
+			document.getElementById("layer2").style.display = "block";
+		}
+	}
+
+	function notice_setCookie( name, value, expiredays ){
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+	}
+
+	function notice_closeWin(pNo){
+		var obj = document.getElementById("layer"+pNo);
+		var chk = document.getElementsByName("popCheck");
+		obj.style.display = "none";
+		//쿠키값 저장
+		notice_setCookie( "pop"+pNo, "done" , 1);
+	}
+
+	function layerX(obj){
+		obj.parentNode.style.display = 'none';
+	}
+
+	</script>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+<div class="wrapper">
+<!-- header -->
+	<header class="header">
+		<h1 class="logo"><a href="index.html"><img src="images/mobile/ko/img_logo.png" alt="planbit" /></a></h1>
+		<a href="" class="btnBack"><i class="xi-reply"></i></a>
+		<div id="dl-menu" class="dl-menuwrapper">
+			<a href="#n" class="dl-trigger icon_language">Lang</a>
+			<ul class="dl-menu">
+				<li><a href="">Korean</a></li>
+				<li><a href="">English</a></li>
+			</ul>
+		</div>
+		<a href="slidemenu.html" class="icon_menu" title="카테고리 메뉴"><i class="xi-bars"></i></a>
+		<script>
+			$(function() {
+				$('#dl-menu').dlmenu();
+			});
+		</script>
+	</header>
+
+
+	<!-- main contents -->
+	<div class="main_container">
+		<section class="section01">
+			<ul class="coinTab tabList">
+				<li><a href="#tab-1" class="current">USDT</a></li>
+				<li><a href="#tab-2">KRW</a></li>
+				<li><a href="#tab-3">BTC</a></li>
+				<li><a href="#tab-4">ETH</a></li>
+			</ul>
+			<div id="tab-1" class="cell tabCon current">
+				<a href="#n" class="btn_bookmark active"><i class="xi-star"></i></a>
+				<a href="#" class="coinup"><i class="xi-angle-up"></i></a>
+				<div class="coin_cover">
+					<ul class="m_coin_list" id="main_coin">
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li class="current">
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="coindown"><i class="xi-angle-down"></i></a>
+			</div>
+			<div id="tab-2" class="cell tabCon">
+				<a href="#n" class="btn_bookmark"><i class="xi-star"></i></a>
+				<a href="#" class="coinup"><i class="xi-angle-up"></i></a>
+				<div class="coin_cover">
+					<ul class="m_coin_list">
+						<li class="current">
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="coindown"><i class="xi-angle-down"></i></a>
+			</div>
+			<div id="tab-3" class="cell tabCon">
+				<a href="#n" class="btn_bookmark"><i class="xi-star"></i></a>
+				<a href="#" class="coinup"><i class="xi-angle-up"></i></a>
+				<div class="coin_cover">
+					<ul class="m_coin_list">
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li class="current">
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+					</ul>		
+				</div>
+				<a href="#" class="coindown"><i class="xi-angle-down"></i></a>
+			</div>
+			<div id="tab-4" class="cell tabCon">
+				<a href="#n" class="btn_bookmark"><i class="xi-star"></i></a>
+				<a href="#" class="coinup"><i class="xi-angle-up"></i></a>
+				<div class="coin_cover">
+					<ul class="m_coin_list">
+						<li class="current">
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark bmCheck"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_btc.png" alt="Bitcoin" />BTC/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_eth.png" alt="Ethereum" />ETH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="down">(-4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_xrp.png" alt="Ripple" />XRP/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="normal">(-)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="coinInfo">
+								<span class="bookmark"><i class="xi-star"></i></span>
+								<h4><img src="images/mobile/ko/coin/50x50_bch.png" alt="Bitcoin Cash" />BCH/USDT</h4>
+								<div class="status">
+									<em>14,600,000 <span class="up">(+4.58%)</span></em>
+								</div>
+							</div>
+							<ul class="staBtn">
+								<li><a href="" class="buy">구매</a></li>
+								<li><a href="" class="sell">판매</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="coindown"><i class="xi-angle-down"></i></a>
+			</div>
+		</section>
+
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+		<script type="text/javascript" src="js/jquery.mCustomScrollbar.min.js"></script>
+		<script>
+			$(function() {
+				$(".coin_cover").mCustomScrollbar({theme:"minimal-dark"});
+			});
+			$(function(){
+				var height =$("#main_coin>li").outerHeight(true);
+				var index=0;
+				var index1=3;
+				$('.coinup').on("click",function(){
+					console.log(index1);
+					if(index1==0){
+						index1=3
+					}else{
+						index1--
+					}
+
+					//if($("#mCSB_1_dragger_vertical").css('top')<=120+"px"){
+					for(var i=0; i<=3;i++){
+						(function(m) {
+							 if($('.tabList>li').eq(i).find('a').hasClass('current')){
+									$("#mCSB_"+(i+1)+"_container").stop().animate({
+											 "top":-height*index1
+									})
+							}
+						})(i);
+					}
+				 // }
+				});
+				$('.coindown').on("click",function(){
+						var max=$("#main_coin>li").length;
+
+						console.log(index);
+
+						if(index>=3){
+								index=0
+						}else{
+								index++
+						}
+					//  if($("#mCSB_1_dragger_vertical").css('top')<=120+"px"){
+								for(var i=0; i<=3;i++){
+									(function(m) {
+										 if($('.tabList>li').eq(i).find('a').hasClass('current')){
+												$("#mCSB_"+(i+1)+"_container").stop().animate({
+												 "top":-height*index
+										})
+										}
+										})(i);
+								}
+					 // }
+
+				});
+			});			
+		</script>
+
+		<section class="section02">
+			<div class="notice_box">
+				<div class="inner">
+					<a href="" class="prev"></a>
+					<p><a href="notice.html"><span>공지</span>실명확인 입출금서비스 시행 안내 / Coinone’s plans for the implementation of real-name accounts</a></p>
+					<a href="" class="next"></a>
+				</div>
+			</div>
+		</section>
+		<section class="section03">
+			<h2><a href="order_list.html">나의 총 거래량<span>(BTC)</span><i class="xi-angle-right"></i></a></h2>
+			<dl class="total_order caseBuy">
+				<dt>구매</dt>
+				<dd><strong>1,112.01155475</strong>(체결:1,112.01155475)</dd>
+			</dl>
+			<dl class="total_order caseSell">
+				<dt>판매</dt>
+				<dd><strong>1,112.01155475</strong>(체결:1,112.01155475)</dd>
+			</dl>
+		</section>
+		<section class="section04">
+			<h2><a href="trade_list.html">호가<i class="xi-angle-right"></i></a></h2>
+      <table class="price_board">
+        <thead>
+          <tr>
+            <th style="width:33%;"><a href="/trade_limit_sell.html"><span class="sell"><i class="xi-log-out"></i></span>판매</a></th>
+            <th style="width:33%;">호가</th>
+            <th style="width:33%;"><a href="/trade_limit_sell.html"><span class="buy"><i class="xi-log-out"></i></span>구매</a></th>
+          </tr>
+        </thead>
+        <tbody class="upBoard">
+          <tr>
+            <td class="sellOut on">14.000</td>
+            <td class="asking"><strong>12,919,000</strong> +0.60%</td>
+            <td class="selling" rowspan="5">
+              <ul>
+                <li>
+                  <span class="pri_t">현재 시가</span>
+                  <span class="pri_m">12,909,000</span>
+                </li>
+                <li>
+                  <span class="pri_t">전일 종가</span>
+                  <span class="pri_m up"><strong>3,000,000</strong>(+3.03%)</span>
+                </li>
+                <li>
+                  <span class="pri_t">당일 최고가</span>
+                  <span class="pri_m up"><strong>3,000,000</strong>(+3.03%)</span>
+                </li>
+                <li>
+                  <span class="pri_t">당일 최저가</span>
+                  <span class="pri_m down"><strong>2,800,000</strong>(-3.03%)</span>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="sellOut">14.000</td>
+            <td class="asking"><strong>2,919,000</strong> +0.60%</td>
+          </tr>
+          <tr>
+            <td class="sellOut">14.000</td>
+            <td class="asking"><strong>2,919,000</strong> +0.60%</td>
+          </tr>
+          <tr>
+            <td class="sellOut">14.000</td>
+            <td class="asking"><strong>2,919,000</strong> +0.60%</td>
+          </tr>
+          <tr>
+            <td class="sellOut">14.000</td>
+            <td class="asking"><strong>2,919,000</strong> +0.60%</td>
+          </tr>
+        </tbody>
+        <tbody class="downBoard">
+          <tr>
+            <td class="buying" rowspan="5">
+              <table class="trade_list">
+                <thead>
+                  <tr>
+                    <th class="txtLeft">체결가</th>
+                    <th class="txtRight">거래량</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="up">12,908,000</td>
+                    <td class="up">0.001</td>
+                  </tr>
+                  <tr>
+                    <td class="down">2,908,000</td>
+                    <td class="down">0.001</td>
+                  </tr>
+                  <tr>
+                    <td class="up">2,908,000</td>
+                    <td class="up">0.001</td>
+                  </tr>
+                  <tr>
+                    <td class="up">2,908,000</td>
+                    <td class="up">0.001</td>
+                  </tr>
+                  <tr>
+                    <td class="down">2,908,000</td>
+                    <td class="down">0.001</td>
+                  </tr>
+                  <tr>
+                    <td class="up">2,908,000</td>
+                    <td class="up">0.001</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="asking default"><strong>2,900,000</strong> -0.00%</td>
+            <td class="buyOut">100.0000</td>
+          </tr>
+          <tr>
+            <td class="asking"><strong>2,899,000</strong> -0.03%</td>
+            <td class="buyOut on">103.0000</td>
+          </tr>
+          <tr>
+            <td class="asking"><strong>2,898,000</strong> -0.06%</td>
+            <td class="buyOut">33.0000</td>
+          </tr>
+          <tr>
+            <td class="asking"><strong>2,897,000</strong> -0.09%</td>
+            <td class="buyOut">14.0000</td>
+          </tr>
+          <tr>
+            <td class="asking"><strong>2,896,000</strong> -0.12%</td>
+            <td class="buyOut">14.0000</td>
+          </tr>
+        </tbody>
+      </table>
+		</section>
+	</div>
+	<div class="floating">
+		<a href="#n" class="btnPopNum1"><i class="xi-plus"></i></a>
+	</div>
+
+<!-- footer -->
+<footer class="footer">
+	<ul class="footer_menu">
+		<li><a href="agreement.html"><span>이용약관</span></a></li>
+		<li><a href="privacy.html"><span>개인정보취급방침</span></a></li>
+	</ul>
+	<div class="footer_info_wrap">
+		<h2>planbit</h2>
+		<ul class="footer_info">
+			<li>주소 : 57 Wireless Rd, Lumphini, Pathum Wan, Bangkok 10330</li>
+			<li>TEL : (001)1929-376-9136</li>
+			<li>E-mail : help@planbit.io</li>
+		</ul>
+	</div>
+<!--
+	<div class="footer_img">
+		<img src="./images/mobile/ko/img_ibk.png" alt="IBK 안심이체 서비스 ESCROW">
+	</div>
+-->
+	<p class="copyright">COPYRIGHT planbit. ALL RIGHTS RESERVED.</p>
+</footer>
+
+</div>
+</body>
+</html>
+
+<!-- 퀵메뉴 -->
+<div class="popup_wrap popup_quick">
+  <div class="quick_contents">
+		<ul class="quick_menu">
+			<li class="q1"><a href="trade.html"></a><span>구매/판매</span></li>
+			<li class="q2"><a href="management.html"></a><span>입출금</span></li>
+			<li class="q3"><a href="asset_status.html"></a><span>자산현황</span></li>
+			<li class="q4"><a href="my_transaction_list.html"></a><span>내 거래내역</span></li>
+		</ul>
+  </div>
+</div>
+
+<!-- 유의사항 팝업 -->
+<div id="layer1" class="layer_popup pop0531">
+	<div class="layerInner">
+		<div class="inner">
+			<div class="txtBox">
+				<h2>스타그램 에어드랍 공지</h2>
+				<h4>에어드랍 두번째 이벤트!</h4>
+				<p>빙고뮤직코인에 이어 스타그램 에어드랍받기<strong>7, 8, 9 이벤트</strong></p>
+				<a href="https://youtu.be/-7J4VK8qx-E" target="_blank" class="popBtn">https://youtu.be/-7J4VK8qx-E</a>
+				<div class="popNoti">
+					<p>스타그램코인(SGC)의 송금 일정 및 빙고뮤직 이벤트 관련/빙고뮤직코인(BMC) 에어드랍 배포 일정은 공지사항을 참고해 주시기 바랍니다.</p>
+				</div>
+			</div>
+			<a href="#n" onClick="layerX(this);" class="popClose">확인</a>
+		</div>
+	</div>
+</div>
+
+<!-- alert -->
+<!--
+<div class="alert_wrap popNum2">
+  <div class="alert_inner">
+		<div class="innerHead">
+			<h3>타이틀</h3>
+			<a href="#n" class="btn_popClose"><i class="xi-close-thin"></i></a>
+		</div>
+		<div class="innerMid">
+			<p>판매하시겠습니까?<br />판매하시겠습니까?<br />판매하시겠습니까?</p>
+		</div>
+		<div class="innerFoot">
+			<ul class="btnArea btn2">
+				<li><a href="" class="btnCheck">확인</a></li>
+				<li><a href="" class="btnCancel">취소</a></li>
+			</ul>
+		</div>
+  </div>
+</div>
+-->

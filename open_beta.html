@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>pactbit</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="apple-mobile-web-app-title" content="pactbit">
+	<meta name="description" content="글로벌 암호화폐거래소">
+	<meta name="keywords" content="비트코인, 가상화폐">
+	<meta property="og:site_name" content="pactbit">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="pactbit">
+	<meta property="og:description" content="글로벌 암호화폐 거래소의 패러다임 PACTBIT">
+	<meta property="og:url" content="https://www.pactbit.com">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="images/mobile/global/common/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/layout.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/contents.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/flat/blue.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/toggleswitch.css" media="all" />
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/icheck.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>
+	<script type="text/javascript" src="js/jquery.toggleswitch.js"></script>
+	<script type="text/javascript" src="js/jquery.dlmenu.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<!-- header -->
+	<header class="header">
+		<h1 class="logo"><a href="index.html"><img src="images/mobile/global/common/logo.png" alt="pactbit" /></a></h1>
+		<ul class="top-menu">
+			<li>
+				<select>
+					<option value="">Korean</option>
+					<option value="">English</option>
+					<option value="">Japanese</option>
+					<option value="">Chinese</option>
+					<option value="">indonesia</option>
+					<option value="">Russian</option>
+					<option value="">Thailand</option>
+					<option value="">Vietnam</option>
+				</select>
+			</li>
+			<li><a href="sign_up.html" class="icon_menu" title="회원가입"><i class="xi-user-o"></i></a></li>
+			<li><a href="slidemenu.html" class="icon_menu" title="카테고리 메뉴"><i class="xi-bars"></i></a></li>
+		</ul>
+	</header>
+
+
+<div class="sub_contents open_beta">
+  <div class="whiteArea open_betaWrap">
+    <div class="tgroup">
+      <h3>Open Beta 신청</h3>
+      <p>세계최초의 HTS, MTS, 모바일웹, 웹 의 모든 방식을 지원하는 거래소로써 공인된 국가 보안 기술과 편리한 인터페이스를 자랑하며,
+        자동거래(구매/판매) 및 자동화폐교환의 차별화된 부가서비스를 경험하실 수 있습니다.</p>
+        <p>오픈베타 기간동안은 일부 기능만 제한적으로 이용가능합니다.</p>
+    </div>
+    <div class="cell">
+      <h4>Open Beta 신청하기</h4>
+      <p>선정되신 분에 한해 메일을 보내드립니다</p>
+      <ul class="writeForm">
+        <li>
+          <input type="text" placeholder="이름" class="userName" />
+        </li>
+        <li>
+          <input type="number" placeholder="전화번호" />
+        </li>
+        <li>
+          <input type="email" placeholder="이메일" />
+        </li>
+      </ul>
+      <a href="" class="btn_submit">신청하기</a>
+    </div>
+    <div class="cell">
+      <h5>신청기간</h5>
+      <p class="h5Desc">2017년 12월 15일 ~ 2018년 1월 1일 까지</p>
+      <h5>혜택</h5>
+      <ul class="dotSytle">
+        <li>오픈베타 테스터 분들께는 정식오픈 시,소정의 수수료 할인쿠폰을 발급해 드립니다.</li>
+        <li>제휴된 쇼핑몰의 쇼핑몰 포인트를 지급해 드립니다.</li>
+        <li>한국암호화페거래소가 인증한 차별화된 기술의 암호화폐를 지급할 예정입니다.(총 지급규모 100만개 규모)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+
+
+<!-- App : footer -->
+<div id="navbar">
+	<a href="#n" class="btnBack"><i class="xi-reply"></i></a>
+	<ul>
+		<li><a href="#n"><p><i class="xi-chart-bar"></i></p>거래소</a></li>
+		<li><a href="#n"><p><i class="xi-money"></i></p>입금/출금</a></li>
+		<li><a href="#n"><p><i class="xi-exchange"></i></p>구매/판매</a></li>
+		<li><a href="#n"><p><i class="xi-paper-o"></i></p>거래내역</a></li>
+		<li><a href="#n"><p><i class="xi-piggy-bank"></i></p>자산현황</a></li>
+	</ul>
+</div>
+<script>
+	var prevScrollpos = window.pageYOffset;
+	window.onscroll = function() {
+	var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos > currentScrollPos) {
+			document.getElementById("navbar").style.bottom = "0";
+		} else {
+			document.getElementById("navbar").style.bottom = "-50px";
+		}
+		prevScrollpos = currentScrollPos;
+	}
+</script>
+
+<!-- Mobile Web : footer -->
+<!--
+<footer class="footer">
+	<div class="footer_info_wrap">
+		<h2><img src="images/mobile/global/common/logo_grey.png" alt="pactbit" /></h2>
+		<ul class="footer_info">
+			<li>pactbit</li>
+			<li>사업자등록번호 : 256-88-01099</li>
+			<li>대표자 김윤관</li>
+		</ul>
+		<ul class="listDot">
+			<li>강남지점 : 서울 강남구 언주로 604(논현동, ACROHILLS논현) 114호</li>
+			<li>선릉지점 : 서울 강남구 선릉로 89길 7(역삼동) 3층</li>
+			<li>1:1문의 : help@planbit.io</li>
+			<li>고객센터 : 1833-2478</li>
+			<li>운영시간 : 10:00 ~ 17:00(주말 및 공휴일 제외)</li>
+		</ul>
+		<ul class="cert_mark">
+			<li><img src="images/mobile/global/common/img_ios.png"></li>
+			<li><img src="images/mobile/global/common/img_google_2.png"></li>
+			<li><img src="images/mobile/global/common/img_ssl.png"></li>
+		</ul>
+	</div>
+	<p class="copyright">Copyright pactbit. all rights reserved.</p>
+</footer>
+-->
+
+</div>
+</body>
+</html>
+
